@@ -7,6 +7,11 @@ export const getIsSignedIn = createSelector(
     [usersSelector],
     state => state.isSignedIn
 )
+
+export const getOrdersHistory = createSelector(
+    [usersSelector],
+    state => state.orders
+)    
     // selectorで現在計算が必要な状態stateを切り替えている。
 export const getProductsInCart = createSelector(
     [usersSelector],

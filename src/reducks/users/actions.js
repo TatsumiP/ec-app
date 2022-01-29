@@ -1,3 +1,11 @@
+export const FETCH_ORDERS_HISTORY = "FETCH_ORDERS_HISTORY";
+export const fetchOrdersHistoryAction = (history) => {          // historyという引数にしておく
+    return {
+        type: "FETCH_PRODUCTS_IN_CART",
+        payload: history
+    }
+};
+
 export const FETCH_PRODUCTS_IN_CART = "FETCH_PRODUCTS_IN_CART";
 export const fetchProductsInCartAction = (products) => {
     return {

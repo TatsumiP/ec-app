@@ -1,4 +1,4 @@
-import {fetchProductsInCartAction, signInAction, signOutAction} from "./actions";
+import {fetchOrdersHistoryAction, fetchProductsInCartAction, signInAction, signOutAction} from "./actions";
 import {push} from 'connected-react-router';
 import {auth, db, FirebaseTimestamp} from '../../firebase/index';
 
@@ -11,6 +11,24 @@ export const addProductToCart = (addedProduct) => {       // DBにカート情�
         addedProduct['cartId'] = cartRef.id;  // CartIdというサブコレクションのidをフィールドとして持たせることができる
         await cartRef.set(addedProduct);
         dispatch(push('/cart'))
+    }
+}
+export const fetchOrdersHistory = () => {
+    return async (dispatch, getState) => {
+        const uid = getState().users.uid;
+        const list = [];
+
+        db.collection('users').doc(uid)
+            .collection('orders')
+            .orderBy('updated_at', 'desc')      // 更新日付順に並んでいく
+            .get()
+            .then((snapshots) => {
+                snapshots.forEach(snapshot => {
+                    const data = snapshot.data()
+                    list.push(data)
+                })
+                dispatch(fetchOrdersHistoryAction(list))
+            })
     }
 }
 
