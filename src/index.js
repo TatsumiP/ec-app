@@ -1,13 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux';
+import createStore from './reducks/store/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ConnectedRouter } from 'connected-react-router';
+import * as History from 'history';
+import {MuiThemeProvider} from "@material-ui/core/styles";
+import './assets/reset.css'
+import './assets/styles.css'
+import {theme} from "./assets/theme";
+export {default as Router} from './Router';
+export {default as Auth} from './Auth';
+
+// info:After V5, MuiThemeProvider changes ThemeProvider
+
+const history = History.createBrowserHistory();
+// storeという定数にstoreの情報を与える
+export const store = createStore(history);
+
+// Providerというコンポーネントにpropsとしてstoreを渡す。Providerはラッピングのような役割
+// 子要素にアプリのルートのコンポーネントになるAppに入れている。
+// store={store}でstoreの情報をpropsに入れている
+// Material-uiのthemeを使うにはここでProviderのラッピングが必要
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+          <MuiThemeProvider theme={theme}>
+            <App />
+          </MuiThemeProvider>
+      </ConnectedRouter>
+    </Provider>,
   document.getElementById('root')
 );
 
