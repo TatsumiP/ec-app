@@ -5,7 +5,7 @@
 
 
 ### App URL
-(管理者用アカウント) メールアドレス：admin@gmail.com パスワード:aaaaaaaa　　
+(管理者用アカウント) メールアドレス：mochimochi2@gmail.com   パスワード:mochimochi2　　
 ## 主な利用方法
 
 ### 使用技術
