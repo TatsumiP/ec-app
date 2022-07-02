@@ -23,17 +23,23 @@
   ### フロントエンド
 　　・React  
 　　・react-router  
-　　・connected-react-router  
-　　・Redux  
+　　・connected-react-router      
+　　・stripe-js
+　　・history
+　　・html-react-parser
+　　・react-hot-toast
+　　・swiper
+　　・Redux
 　　・HTML/CSS/Sass  
-　　・Material UI(MUI)  
+　　・Material UI(MUI)
 　
   ### バックエンド
 　　・Firebase  
-　　　・Cloud Firestore  
+    　・Cloud Firestore  
     　・Firebase Authentication  
     　・Storage  
 　　・Stripe API  
+　　・SendGrid API
   
 ## 機能一覧
   - #### サインイン/サインアップ
