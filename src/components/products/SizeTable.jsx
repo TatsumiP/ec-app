@@ -60,11 +60,11 @@ const SizeTable = (props) => {
                                     </TableCell>
                                     <TableCell className={classes.iconCell}>
                                         {size.quantity > 0 ? (
-                                            <IconButton onClick={() => props.addProduct(size.size)}>  {/*ボタンを押すと商品を追加 */}
+                                            <IconButton
+                                                onClick={() => props.addProduct(size.size)}
+                                            >  {/*ボタンを押すと商品を追加 */}
                                                 <ShoppingCartIcon />
                                             </IconButton>
-
-
                                         ) : (
                                             <div>売切</div>
                                         )}
